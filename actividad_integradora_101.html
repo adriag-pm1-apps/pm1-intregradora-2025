@@ -2,24 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Actividad integradora PM1 - Progresión 3</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PRÁCTICA INTEGRAL TERCER PARCIAL PM1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        :root {
-            --primary: #0d47a1;
-            --primary-light: #1976d2;
-            --primary-dark: #002171;
-            --accent: #ffb300;
-            --accent-soft: #fff3cd;
-            --bg: #f5f5f5;
-            --card-bg: #ffffff;
-            --text-main: #212121;
-            --text-muted: #616161;
-            --border-soft: #e0e0e0;
-            --error: #c62828;
-            --success: #2e7d32;
-        }
-
         * {
             box-sizing: border-box;
         }
@@ -28,14 +13,14 @@
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             margin: 0;
             padding: 0;
-            background: radial-gradient(circle at top, #e3f2fd 0, #f5f5f5 55%, #e8eaf6 100%);
-            color: var(--text-main);
+            background: #f5f7fb;
+            color: #222;
         }
 
-        .app-container {
-            max-width: 1100px;
+        .container {
+            max-width: 960px;
             margin: 0 auto;
-            padding: 24px 16px 40px;
+            padding: 16px;
         }
 
         header {
@@ -43,1451 +28,1203 @@
             margin-bottom: 16px;
         }
 
-        header h1 {
-            font-size: 1.7rem;
-            margin: 0 0 4px;
-            color: var(--primary-dark);
-        }
-
-        header h2 {
-            font-size: 1.2rem;
-            margin: 0;
-            color: var(--primary);
-            font-weight: 600;
+        h1 {
+            font-size: 1.6rem;
+            margin: 0 0 6px 0;
+            color: #243b53;
         }
 
         header p {
-            margin: 6px 0 0;
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            margin: 2px 0;
+            font-size: 0.9rem;
         }
 
-        .layout {
-            display: grid;
-            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-            gap: 18px;
-            margin-top: 18px;
+        .subtext {
+            font-size: 0.85rem;
+            color: #52606d;
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.97);
-            border-radius: 14px;
-            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.10);
-            padding: 18px 18px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-        }
-
-        .card-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .card-title h3 {
-            margin: 0;
-            font-size: 1.08rem;
-            color: var(--primary-dark);
-        }
-
-        .badge {
-            font-size: 0.8rem;
-            padding: 4px 9px;
-            border-radius: 999px;
-            background: #e3f2fd;
-            color: var(--primary-dark);
-            font-weight: 600;
-        }
-
-        .info-section {
-            margin-bottom: 12px;
-        }
-
-        .info-section h4 {
-            margin: 0 0 6px;
-            font-size: 0.98rem;
-            color: var(--primary);
-        }
-
-        .info-section p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .info-field label {
-            display: block;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            margin-bottom: 3px;
-        }
-
-        .info-field input,
-        .info-field textarea {
-            width: 100%;
-            padding: 7px 9px;
-            border-radius: 8px;
-            border: 1px solid var(--border-soft);
-            font-size: 0.9rem;
-            font-family: inherit;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-        }
-
-        .info-field textarea {
-            resize: vertical;
-            min-height: 48px;
-        }
-
-        .info-field input:focus,
-        .info-field textarea:focus {
-            outline: none;
-            border-color: var(--primary-light);
-            box-shadow: 0 0 0 1px rgba(25, 118, 210, 0.22);
             background: #ffffff;
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.1);
         }
 
-        .readonly-field {
-            background-color: #f3f3f3;
-            cursor: default;
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.05rem;
+            color: #243b53;
         }
 
-        .integrantes-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 10px;
-            margin-top: 8px;
-        }
-
-        .integrante-label {
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            margin-bottom: 3px;
-        }
-
-        .integrante-input {
-            width: 100%;
-            padding: 7px 9px;
-            border-radius: 8px;
-            border: 1px solid var(--border-soft);
+        label {
             font-size: 0.9rem;
-            font-family: inherit;
-        }
-
-        .integrante-input:focus {
-            outline: none;
-            border-color: var(--primary-light);
-            box-shadow: 0 0 0 1px rgba(25, 118, 210, 0.22);
-        }
-
-        .instructions-list {
-            margin: 0;
-            padding-left: 18px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .instructions-list li {
+            display: block;
             margin-bottom: 4px;
         }
 
-        .instructions-highlight {
-            background: var(--accent-soft);
-            border-radius: 8px;
-            padding: 8px 10px;
-            font-size: 0.9rem;
-            margin-top: 8px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .instructions-highlight strong {
-            color: #8c6d1f;
-        }
-
-        .exercise-counter {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 8px;
-        }
-
-        .exercise-counter span {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .exercise-counter .current {
-            font-weight: 600;
-            color: var(--primary-dark);
-        }
-
-        .exercise-card {
-            border-radius: 10px;
-            padding: 10px 12px;
-            background: #fdfdfd;
-            border: 1px solid var(--border-soft);
-            margin-bottom: 10px;
-        }
-
-        .exercise-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-
-        .exercise-title {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--text-main);
-        }
-
-        .exercise-tag {
-            font-size: 0.75rem;
-            padding: 2px 8px;
-            border-radius: 999px;
-            background: #e8eaf6;
-            color: #283593;
-            font-weight: 600;
-        }
-
-        .exercise-body {
-            font-size: 0.92rem;
-            color: var(--text-main);
-            margin-bottom: 6px;
-        }
-
-        .exercise-body .expression {
-            font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            background: #f5f5f5;
-            padding: 2px 5px;
-            border-radius: 4px;
-        }
-
-        .exercise-context {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        .answer-area label {
-            display: block;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            margin-bottom: 3px;
-        }
-
-        .answer-area input {
+        input[type="text"] {
             width: 100%;
-            padding: 7px 9px;
-            border-radius: 8px;
-            border: 1px solid var(--border-soft);
+            padding: 8px 10px;
+            border-radius: 6px;
+            border: 1px solid #cbd2e1;
             font-size: 0.9rem;
-            font-family: inherit;
         }
 
-        .answer-area input:focus {
+        input[type="text"]:focus {
             outline: none;
-            border-color: var(--primary-light);
-            box-shadow: 0 0 0 1px rgba(25, 118, 210, 0.22);
+            border-color: #4c6fff;
+            box-shadow: 0 0 0 2px rgba(76, 111, 255, 0.2);
         }
 
-        .feedback {
-            margin-top: 6px;
-            font-size: 0.9rem;
-            min-height: 1.2em;
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
         }
 
-        .feedback.correct {
-            color: var(--success);
+        @media (min-width: 600px) {
+            .team-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
-        .feedback.incorrect {
-            color: var(--error);
-        }
-
-        .buttons-row {
+        .button-row {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         button {
             border: none;
-            border-radius: 999px;
             padding: 8px 14px;
+            border-radius: 999px;
             font-size: 0.9rem;
-            font-weight: 600;
             cursor: pointer;
-            font-family: inherit;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.05s ease;
-        }
-
-        button.primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            background: #4c6fff;
             color: #ffffff;
-            box-shadow: 0 4px 10px rgba(13, 71, 161, 0.35);
+            transition: transform 0.05s ease, box-shadow 0.1s ease, background 0.15s ease;
         }
 
-        button.secondary {
-            background: #ffffff;
-            color: var(--primary-dark);
-            border-radius: 999px;
-            border: 1px solid rgba(13, 71, 161, 0.18);
+        button:hover:enabled {
+            background: #3856e6;
+            box-shadow: 0 2px 6px rgba(56, 86, 230, 0.35);
         }
 
-        button.info {
-            background: #ffffff;
-            color: var(--text-muted);
-            border-radius: 999px;
-            border: 1px dashed rgba(33, 33, 33, 0.3);
-            font-weight: 500;
-        }
-
-        button.primary:hover {
-            background: linear-gradient(135deg, var(--primary-light), var(--primary));
-            transform: translateY(-1px);
-            box-shadow: 0 6px 14px rgba(13, 71, 161, 0.45);
-        }
-
-        button.secondary:hover,
-        button.info:hover {
-            background: #f5f5f5;
-        }
-
-        button:active {
-            transform: translateY(0);
-            box-shadow: none;
+        button:active:enabled {
+            transform: translateY(1px);
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.25);
         }
 
         button:disabled {
-            opacity: 0.6;
-            cursor: default;
+            background: #cbd2e1;
+            cursor: not-allowed;
             box-shadow: none;
         }
 
-        .results-card {
-            margin-top: 5px;
+        .button-secondary {
+            background: #e4e7f2;
+            color: #243b53;
         }
 
-        .results-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
+        .button-secondary:hover:enabled {
+            background: #d0d4e7;
         }
 
-        .results-header h3 {
-            margin: 0;
-            font-size: 1.02rem;
-            color: var(--primary-dark);
+        .exercise-type {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #4c6fff;
+            margin-bottom: 4px;
         }
 
-        .summary-highlight {
+        .exercise-statement {
             font-size: 0.95rem;
-            padding: 10px 12px;
-            border-radius: 10px;
-            background: #f9fbe7;
-            border: 1px solid #dce775;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            white-space: pre-line;
         }
 
-        .summary-highlight strong {
-            color: #827717;
+        .feedback {
+            font-size: 0.9rem;
+            padding: 8px 10px;
+            border-radius: 8px;
+            background: #f0f4ff;
+            border-left: 4px solid #4c6fff;
+            margin-top: 8px;
+            white-space: pre-line;
         }
 
-        .score-row {
+        .feedback.correct {
+            background: #e6fffa;
+            border-left-color: #0f766e;
+        }
+
+        .feedback.incorrect {
+            background: #fdf2f2;
+            border-left-color: #b91c1c;
+        }
+
+        .status-bar {
             display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 6px;
+            font-size: 0.85rem;
+            margin-top: 8px;
         }
 
-        .score-row span {
-            font-size: 0.95rem;
+        .status-left,
+        .status-right {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            align-items: center;
         }
 
-        .score {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--primary-dark);
+        .badge {
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #e4e7f2;
+            color: #243b53;
         }
 
-        .percent {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--success);
+        .badge-success {
+            background: #def7ec;
+            color: #03543f;
         }
 
-        .attempt-warning {
-            font-size: 0.88rem;
-            color: var(--error);
+        .badge-error {
+            background: #fde8e8;
+            color: #981b1b;
+        }
+
+        .message {
+            font-size: 0.85rem;
             margin-top: 4px;
         }
 
-        .report-container {
-            margin-top: 12px;
-            padding-top: 8px;
-            border-top: 1px dashed rgba(0, 0, 0, 0.12);
+        .message.error {
+            color: #b91c1c;
         }
 
-        .report-instructions {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 6px;
+        .message.info {
+            color: #52606d;
         }
 
-        .report-box {
-            margin-top: 6px;
-            border-radius: 12px;
-            padding: 12px;
-            background: #ffffff;
-            border: 1px solid #d1c4e9;
-        }
-
-        .report-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 6px;
-        }
-
-        .report-header-left h4 {
-            margin: 0;
-            font-size: 0.95rem;
-            color: #4527a0;
-        }
-
-        .report-header-left p {
-            margin: 0;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .report-header-right {
-            text-align: right;
-            font-size: 0.8rem;
-            color: var(--text-muted);
+        .hidden {
+            display: none;
         }
 
         .report-grid {
             display: grid;
-            grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
-            gap: 10px;
-            margin-top: 8px;
-            font-size: 0.85rem;
-        }
-
-        .report-grid h5 {
-            margin: 0 0 4px;
-            font-size: 0.86rem;
-            color: var(--primary-dark);
-        }
-
-        .report-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 3px;
-        }
-
-        .report-label {
-            font-weight: 600;
-            color: var(--text-muted);
-        }
-
-        .report-value {
-            font-weight: 500;
-        }
-
-        .report-score-box {
-            border-radius: 10px;
-            padding: 8px 9px;
-            background: #f3e5f5;
-            border: 1px solid #ce93d8;
-            margin-top: 4px;
-        }
-
-        .report-score-main {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #4a148c;
-        }
-
-        .report-score-detail {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .report-footer {
-            margin-top: 6px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            display: flex;
-            justify-content: space-between;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .watermark {
-            font-size: 0.78rem;
-            color: rgba(0, 0, 0, 0.35);
-        }
-
-        .teacher-name {
-            font-weight: 600;
-            color: #4a148c;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        .note {
-            margin-top: 10px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .note strong {
-            color: var(--primary-dark);
-        }
-
-        .small {
-            font-size: 0.8rem;
-        }
-
-        .highlight {
-            color: var(--primary-dark);
-            font-weight: 600;
-        }
-
-        .warning {
-            color: var(--error);
-            font-weight: 600;
-        }
-
-        .accent {
-            color: #ef6c00;
-            font-weight: 600;
-        }
-
-        .pill {
-            display: inline-flex;
-            align-items: center;
+            grid-template-columns: 1fr;
             gap: 6px;
-            padding: 3px 8px;
-            border-radius: 999px;
-            background: #e3f2fd;
-            color: var(--primary-dark);
-            font-size: 0.78rem;
-        }
-
-        .pill-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #1e88e5;
-        }
-
-        .footer-message {
-            margin-top: 12px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-align: center;
-        }
-
-        .footer-message strong {
-            color: var(--primary-dark);
-        }
-
-        @media (max-width: 900px) {
-            .layout {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .card {
-                padding: 16px 14px 18px;
-            }
-
-            .report-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 1.5rem;
-            }
-
-            header h2 {
-                font-size: 1.05rem;
-            }
-
-            .layout {
-                gap: 12px;
-            }
-
-            .integrantes-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
-        /* --- Acceso con contraseña por grupo --- */
-        #password-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.78);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-        }
-        .password-modal {
-            background: #ffffff;
-            max-width: 420px;
-            width: 90%;
-            padding: 24px 20px;
-            border-radius: 12px;
-            box-shadow: 0 10px 32px rgba(0, 0, 0, 0.45);
-            text-align: center;
-        }
-        .password-modal h2 {
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.4rem;
-        }
-        .password-modal p {
-            margin-bottom: 10px;
-        }
-        .password-modal input[type="password"] {
-            width: 100%;
-            padding: 10px 12px;
-            font-size: 1rem;
-            border-radius: 6px;
-            border: 1px solid #cccccc;
-            margin-bottom: 12px;
-        }
-        .password-modal button {
-            width: 100%;
-            padding: 10px 12px;
-            font-size: 1rem;
-        }
-        .password-error {
-            color: #b00020;
             font-size: 0.9rem;
-            min-height: 1.2em;
+        }
+
+        @media (min-width: 600px) {
+            .report-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .report-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .small-note {
+            font-size: 0.8rem;
+            color: #7b8794;
+        }
+
+        ul.small-note {
+            margin-top: 4px;
+            padding-left: 18px;
         }
     </style>
 </head>
 <body>
-  <div id="password-overlay" aria-modal="true" role="dialog">
-    <div class="password-modal">
-      <h2>Actividad integradora 101</h2>
-      <p>Introduce la contraseña que te dio tu docente para comenzar.</p>
-      <input type="password" id="access-password" placeholder="Contraseña" autocomplete="off">
-      <button id="access-button" type="button">Entrar</button>
-      <p id="password-error" class="password-error" aria-live="polite"></p>
-    </div>
-  </div>
-
-<div class="app-container">
+<div class="container">
     <header>
-        <h1>Actividad integradora – Progresión 3</h1>
-        <h2>Aplicación de razones, proporciones y porcentajes en contextos reales</h2>
-        <p>Registren sus datos, contesten los ejercicios paso a paso y al final tomen captura de pantalla del reporte.</p>
+        <h1>PRÁCTICA INTEGRAL TERCER PARCIAL PM1</h1>
+        <p>Razones, porcentajes, regla de 3, exponentes y operaciones combinadas</p>
+        <p class="subtext">Pensamiento Matemático 1 – Mtra. Adriana Arroyo</p>
     </header>
 
-    <div class="layout">
-        <!-- Columna izquierda: Datos y ejercicio -->
-        <section class="card">
-            <div class="card-title">
-                <h3>Datos del equipo y ejercicio asignado</h3>
-                <span class="badge">Grupo 101</span>
+    <!-- Mensajes generales -->
+    <div id="generalMessage" class="message info"></div>
+
+    <!-- ACCESO POR CÓDIGO DE GRUPO -->
+    <section class="card">
+        <h3>Acceso a la práctica (código de grupo)</h3>
+        <label for="accessCode">Escribe el código de acceso que te dio la maestra:</label>
+        <input type="text" id="accessCode" autocomplete="off">
+        <div class="button-row">
+            <button id="btnAcceso">Entrar</button>
+        </div>
+        <p class="small-note">
+            Cada grupo tiene un código distinto. No lo compartas con otros grupos.
+        </p>
+        <p id="accessMessage" class="message hidden"></p>
+    </section>
+
+    <!-- Datos del equipo -->
+    <section class="card">
+        <h3>Datos del equipo</h3>
+        <div class="team-grid">
+            <div>
+                <label for="integrante1">Nombre y apellido del integrante 1</label>
+                <input type="text" id="integrante1" autocomplete="off">
             </div>
-
-            <div class="info-section">
-                <h4>Datos del equipo</h4>
-                <p>Completen la información y revisen que sus nombres estén bien escritos.</p>
-
-                <div class="info-grid">
-                    <div class="info-field">
-                        <label for="equipo">Nombre del equipo:</label>
-                        <input type="text" id="equipo" placeholder="Ej. Los racionales">
-                    </div>
-                    <div class="info-field">
-                        <label for="grupo">Grupo:</label>
-                        <input type="text" id="grupo" value="101" readonly maxlength="20" class="readonly-field" autocomplete="off">
-                    </div>
-                    <div class="info-field">
-                        <label for="turno">Turno:</label>
-                        <input type="text" id="turno" placeholder="Ej. Matutino / Vespertino">
-                    </div>
-                </div>
-
-                <div class="integrantes-grid">
-                    <div>
-                        <div class="integrante-label">Integrante 1:</div>
-                        <input type="text" class="integrante-input" id="integrante1" placeholder="Nombre completo">
-                    </div>
-                    <div>
-                        <div class="integrante-label">Integrante 2:</div>
-                        <input type="text" class="integrante-input" id="integrante2" placeholder="Nombre completo">
-                    </div>
-                    <div>
-                        <div class="integrante-label">Integrante 3:</div>
-                        <input type="text" class="integrante-input" id="integrante3" placeholder="Nombre completo (opcional)">
-                    </div>
-                    <div>
-                        <div class="integrante-label">Integrante 4:</div>
-                        <input type="text" class="integrante-input" id="integrante4" placeholder="Nombre completo (opcional)">
-                    </div>
-                </div>
+            <div>
+                <label for="integrante2">Nombre y apellido del integrante 2</label>
+                <input type="text" id="integrante2" autocomplete="off">
             </div>
-
-            <div class="info-section">
-                <h4>Ejercicio asignado</h4>
-                <p>La aplicación seleccionará automáticamente un ejercicio integral de la Progresión 3.</p>
-                <ul class="instructions-list">
-                    <li>Lean con atención la situación y subrayen los datos importantes.</li>
-                    <li>Resuelvan paso a paso en su cuaderno antes de escribir el resultado final.</li>
-                    <li>Escriban en la app solo el resultado final, con unidades cuando sea necesario.</li>
-                </ul>
-                <div class="instructions-highlight">
-                    <strong>Importante:</strong> Registren solo una respuesta por equipo. Cuando estén seguros, hagan clic en
-                    <span class="highlight">"Guardar respuesta"</span>.
-                </div>
+            <div>
+                <label for="integrante3">Nombre y apellido del integrante 3</label>
+                <input type="text" id="integrante3" autocomplete="off">
             </div>
-
-            <div class="exercise-counter">
-                <span>Ejercicio integral asignado</span>
-                <span class="pill"><span class="pill-dot"></span> Progresión 3</span>
+            <div>
+                <label for="grupo">Grupo</label>
+                <input type="text" id="grupo" autocomplete="off">
             </div>
+        </div>
+        <p class="small-note">
+            Después de escribir el código de acceso verás el grupo fijo. Solo entonces escribe correctamente los nombres.
+            Estos datos aparecerán en el reporte final.
+        </p>
+    </section>
 
-            <div id="exercise-card" class="exercise-card">
-                <div class="exercise-header">
-                    <div class="exercise-title" id="exercise-title">Situación contextualizada</div>
-                    <span class="exercise-tag" id="exercise-tag">Razones y porcentajes</span>
-                </div>
-                <div class="exercise-body">
-                    <div id="exercise-description">
-                        <!-- Aquí se insertará el ejercicio -->
-                    </div>
-                    <div class="exercise-context" id="exercise-context">
-                        <!-- Contexto o instrucción adicional -->
-                    </div>
-                </div>
+    <!-- Información de la estructura fija de la práctica -->
+    <section class="card">
+        <h3>Estructura de la práctica</h3>
+        <p class="small-note">
+            Esta práctica genera automáticamente un paquete de <strong>10 ejercicios</strong> con los siguientes cupos:
+        </p>
+        <ul class="small-note">
+            <li>2 ejercicios de razones, proporciones y/o porcentajes</li>
+            <li>1 ejercicio de situación de proporcionalidad directa</li>
+            <li>1 ejercicio de situación de proporcionalidad inversa</li>
+            <li>3 ejercicios de leyes de exponentes (casos amigables)</li>
+            <li>3 ejercicios de operaciones combinadas (nivel súper avanzado)</li>
+        </ul>
+        <p class="small-note">
+            El orden de los ejercicios se mezcla de forma aleatoria. En las situaciones de proporcionalidad
+            <strong>no se indica si es regla de 3 directa o inversa</strong>; el equipo debe decidir qué tipo aplicar.
+        </p>
+        <p class="small-note">
+            Importante para <strong>leyes de exponentes</strong>: escribe <strong>solo el resultado final como número</strong>
+            (por ejemplo 32), <strong>no escribas potencias</strong> con <code>^</code> o <code>**</code>.
+        </p>
+        <div class="button-row">
+            <button id="btnIniciar">Iniciar práctica</button>
+            <button id="btnReiniciar" class="button-secondary">Volver a empezar (nuevo intento)</button>
+        </div>
+        <p class="small-note">
+            Nota: solo se podrá ver el reporte y volver a empezar cuando se hayan resuelto los 10 ejercicios de un paquete.
+            Solo el <strong>primer intento sin errores</strong> de cada sesión puede optar a puntos extra.
+        </p>
+    </section>
 
-                <div class="answer-area">
-                    <label for="respuesta">Resultado final del equipo:</label>
-                    <input type="text" id="respuesta" placeholder="Escriban aquí el resultado final">
-                </div>
-                <div class="feedback" id="feedback"></div>
+    <!-- Zona del ejercicio actual -->
+    <section class="card">
+        <h3>Ejercicio actual</h3>
+        <div id="exerciseType" class="exercise-type">Presiona “Iniciar práctica” para generar el primer ejercicio.</div>
+        <div id="exerciseStatement" class="exercise-statement"></div>
 
-                <div class="buttons-row">
-                    <button class="secondary" id="btnNewExercise" type="button">
-                        ↻ Cambiar ejercicio
-                    </button>
-                    <button class="primary" id="btnSaveAnswer" type="button">
-                        ✔ Guardar respuesta
-                    </button>
-                    <button class="info" id="btnShowExample" type="button">
-                        ❓ Ver ejemplo de resolución
-                    </button>
-                </div>
+        <label for="answerInput">Escribe tu respuesta:</label>
+        <input type="text" id="answerInput" autocomplete="off">
+
+        <div class="button-row" style="margin-top: 8px;">
+            <button id="btnVerificar">Verificar respuesta</button>
+            <button id="btnSiguiente" class="button-secondary">Siguiente ejercicio</button>
+        </div>
+
+        <div id="feedback" class="feedback hidden"></div>
+
+        <div class="status-bar">
+            <div class="status-left">
+                <div class="badge" id="exerciseCounter">Ejercicio 0 de 10</div>
+                <div class="badge" id="attemptBadge">Intento: 1</div>
+                <div class="badge" id="sessionBadge">Sesión: -----</div>
             </div>
-
-            <div class="note">
-                <strong>Sugerencia:</strong> Si se equivocan en la primera respuesta, pueden intentar de nuevo,
-                pero la app registrará <span class="warning">el número de intentos</span> y la respuesta final que
-                quedó guardada.
+            <div class="status-right">
+                <span class="badge badge-success" id="aciertosBadge">Aciertos: 0</span>
+                <span class="badge badge-error" id="erroresBadge">Errores: 0</span>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Columna derecha: Resultados y reporte -->
-        <section class="card results-card">
-            <div class="results-header">
-                <h3>Seguimiento de la actividad</h3>
-                <span class="badge">Resumen del equipo</span>
-            </div>
+    <!-- Reporte final -->
+    <section class="card">
+        <h3>Reporte y resultados</h3>
+        <div class="button-row">
+            <button id="btnReporte">Ver reporte / finalizar práctica</button>
+        </div>
 
-            <div class="summary-highlight">
-                <p id="summary-text">
-                    Cuando guarden la respuesta de su equipo, aquí aparecerá un resumen con los intentos,
-                    el resultado final y sugerencias para mejorar.
-                </p>
-            </div>
-
-            <div class="score-row">
-                <span>Resultado final registrado:</span>
-                <span class="score" id="score-result">–</span>
-            </div>
-            <div class="score-row">
-                <span>Intentos realizados:</span>
-                <span class="score" id="attempts-count">0</span>
-            </div>
-            <div class="score-row">
-                <span>Porcentaje de avance en la actividad:</span>
-                <span class="percent" id="progress-percent">0%</span>
-            </div>
-            <div class="attempt-warning" id="attempt-warning"></div>
-
-            <div class="report-container">
-                <div class="report-instructions">
-                    <strong>Al terminar:</strong> generen el reporte, revisen sus datos y tomen una
-                    <span class="highlight">captura de pantalla completa</span> donde se vea:
-                    nombre del equipo, integrantes, grupo, respuesta final e intentos.
-                </div>
-
-                <div class="report-box" id="report-box">
-                    <div class="report-header">
-                        <div class="report-header-left">
-                            <h4>DATOS DEL EQUIPO – ACTIVIDAD INTEGRADORA</h4>
-                            <p>Progresión 3 · Pensamiento Matemático I</p>
-                        </div>
-                        <div class="report-header-right">
-                            <div>Fecha: <span id="report-date">–</span></div>
-                            <div>Hora: <span id="report-time">–</span></div>
-                        </div>
-                    </div>
-
-                    <div class="report-grid">
-                        <div>
-                            <h5>Equipo y grupo</h5>
-                            <div class="report-row">
-                                <span class="report-label">Nombre del equipo:</span>
-                                <span class="report-value" id="result-team">–</span>
-                            </div>
-                            <div class="report-row">
-                                <span class="report-label">Integrantes:</span>
-                                <span class="report-value" id="result-members">–</span>
-                            </div>
-                            <div class="report-row">
-                                <span class="report-label">Grupo:</span>
-                                <span class="report-value" id="result-group">–</span>
-                            </div>
-                            <div class="report-row">
-                                <span class="report-label">Turno:</span>
-                                <span class="report-value" id="result-shift">–</span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h5>Resultado de la actividad</h5>
-                            <div class="report-row">
-                                <span class="report-label">Ejercicio asignado:</span>
-                                <span class="report-value" id="result-exercise">–</span>
-                            </div>
-                            <div class="report-row">
-                                <span class="report-label">Resultado final registrado:</span>
-                                <span class="report-value" id="result-answer">–</span>
-                            </div>
-                            <div class="report-row">
-                                <span class="report-label">Intentos realizados:</span>
-                                <span class="report-value" id="result-attempts">0</span>
-                            </div>
-
-                            <div class="report-score-box">
-                                <div class="report-score-main" id="result-summary-main">
-                                    Actividad en proceso
-                                </div>
-                                <div class="report-score-detail" id="result-summary-detail">
-                                    Generen el reporte cuando estén seguros de su respuesta final.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="report-footer">
-                        <span class="watermark">
-                            Grupo 101 · Actividad integradora Progresión 3 · Pensamiento Matemático I
-                        </span>
-                        <span class="teacher-name">Docente: Mtra. Adriana Arroyo</span>
-                    </div>
-                </div>
-
-                <div class="buttons-row" style="margin-top: 10px;">
-                    <button class="primary" id="btnGenerateReport" type="button">
-                        🧾 Generar / actualizar reporte
-                    </button>
-                    <button class="secondary" id="btnClearData" type="button">
-                        🗑 Limpiar datos
-                    </button>
-                </div>
-
-                <div class="note small">
-                    <strong>Captura de pantalla:</strong> asegúrense de que en la imagen se vea
-                    <span class="highlight">todo el recuadro del reporte</span>, incluyendo el grupo y la fecha.
-                </div>
-            </div>
-
-            <div class="footer-message">
-                <strong>Recuerden:</strong> esta actividad integradora forma parte de su evaluación.
-                Trabajen con calma, dialoguen en equipo y justifiquen sus procedimientos.
-            </div>
-        </section>
-    </div>
+        <div id="reportSection" class="card hidden" style="margin-top: 10px; background:#f9fafb;">
+            <div class="report-title">Reporte final de la práctica</div>
+            <div id="reportContent" class="report-grid"></div>
+            <p class="small-note">
+                Este reporte queda visible en pantalla para que el equipo pueda registrarlo o tomar captura.
+            </p>
+        </div>
+    </section>
 </div>
 
 <script>
-    (function () {
-        "use strict";
+    // -----------------------------
+    // Variables globales de estado
+    // -----------------------------
+    const MAX_EXERCISES = 10;
 
-        // ---------------------------------------------------------------------
-        // CONFIGURACIÓN GENERAL
-        // ---------------------------------------------------------------------
+    let exercisePlan = [];        // Plan de tipos de ejercicio
+    let currentExerciseNumber = 0; // 1 a MAX_EXERCISES
+    let correctCount = 0;
+    let incorrectCount = 0;
+    let currentExercise = null;
+    let alreadyChecked = false;
+    let attemptNumber = 1;
+    let finishedAll = false;      // true cuando ya se verificó el ejercicio 10
+    let sessionCode = "";         // Código de sesión (cambia al recargar la página)
 
-        const STORAGE_KEY = "pm1_integral_p3_v2";
-        const MAX_ATTEMPTS = 3;
-        const MAX_EXERCISES = 10;
-        const GROUP_NAME = "101";
-        const GROUP_PASSWORD = "M212-1-730";
+    // Acceso por código de grupo
+    let accessGranted = false;
+    let groupFixed = "";
+    let accessCodeUsed = "";
 
-        // DOM elements
-        const equipoInput = document.getElementById("equipo");
-        const grupoInput = document.getElementById("grupo");
-        if (grupoInput) {
-            grupoInput.value = GROUP_NAME;
-            grupoInput.readOnly = true;
-            grupoInput.classList.add("readonly-field");
+    const GROUP_CODES = {
+        "M212-1-730": "101",
+        "L112-2-730": "102",
+        "L112-3-920": "103"
+    };
+
+    // -----------------------------
+    // Referencias a elementos DOM
+    // -----------------------------
+    const generalMessage = document.getElementById("generalMessage");
+
+    const accessCodeInput = document.getElementById("accessCode");
+    const btnAcceso = document.getElementById("btnAcceso");
+    const accessMessage = document.getElementById("accessMessage");
+
+    const integrante1Input = document.getElementById("integrante1");
+    const integrante2Input = document.getElementById("integrante2");
+    const integrante3Input = document.getElementById("integrante3");
+    const grupoInput = document.getElementById("grupo");
+
+    const exerciseTypeEl = document.getElementById("exerciseType");
+    const exerciseStatementEl = document.getElementById("exerciseStatement");
+    const answerInput = document.getElementById("answerInput");
+    const feedbackEl = document.getElementById("feedback");
+
+    const exerciseCounterEl = document.getElementById("exerciseCounter");
+    const aciertosBadge = document.getElementById("aciertosBadge");
+    const erroresBadge = document.getElementById("erroresBadge");
+    const attemptBadge = document.getElementById("attemptBadge");
+    const sessionBadge = document.getElementById("sessionBadge");
+
+    const btnIniciar = document.getElementById("btnIniciar");
+    const btnReiniciar = document.getElementById("btnReiniciar");
+    const btnVerificar = document.getElementById("btnVerificar");
+    const btnSiguiente = document.getElementById("btnSiguiente");
+    const btnReporte = document.getElementById("btnReporte");
+
+    const reportSection = document.getElementById("reportSection");
+    const reportContent = document.getElementById("reportContent");
+
+    // -----------------------------
+    // Utilidades
+    // -----------------------------
+
+    function randomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function randomChoice(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function generateSessionCode(length = 5) {
+        const chars = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"; // sin 0,1,O,I para evitar confusión
+        let code = "";
+        for (let i = 0; i < length; i++) {
+            code += chars.charAt(Math.floor(Math.random() * chars.length));
         }
-        const turnoInput = document.getElementById("turno");
+        return code;
+    }
 
-        const integrante1Input = document.getElementById("integrante1");
-        const integrante2Input = document.getElementById("integrante2");
-        const integrante3Input = document.getElementById("integrante3");
-        const integrante4Input = document.getElementById("integrante4");
-
-        const exerciseTitleEl = document.getElementById("exercise-title");
-        const exerciseTagEl = document.getElementById("exercise-tag");
-        const exerciseDescriptionEl = document.getElementById("exercise-description");
-        const exerciseContextEl = document.getElementById("exercise-context");
-        const respuestaInput = document.getElementById("respuesta");
-        const feedbackEl = document.getElementById("feedback");
-
-        const summaryTextEl = document.getElementById("summary-text");
-        const scoreResultEl = document.getElementById("score-result");
-        const attemptsCountEl = document.getElementById("attempts-count");
-        const progressPercentEl = document.getElementById("progress-percent");
-        const attemptWarningEl = document.getElementById("attempt-warning");
-
-        const reportDateEl = document.getElementById("report-date");
-        const reportTimeEl = document.getElementById("report-time");
-        const resultTeamEl = document.getElementById("result-team");
-        const resultMembersEl = document.getElementById("result-members");
-        const resultGroupEl = document.getElementById("result-group");
-        const resultShiftEl = document.getElementById("result-shift");
-        const resultExerciseEl = document.getElementById("result-exercise");
-        const resultAnswerEl = document.getElementById("result-answer");
-        const resultAttemptsEl = document.getElementById("result-attempts");
-        const resultSummaryMainEl = document.getElementById("result-summary-main");
-        const resultSummaryDetailEl = document.getElementById("result-summary-detail");
-
-        const btnNewExercise = document.getElementById("btnNewExercise");
-        const btnSaveAnswer = document.getElementById("btnSaveAnswer");
-        const btnShowExample = document.getElementById("btnShowExample");
-        const btnGenerateReport = document.getElementById("btnGenerateReport");
-        const btnClearData = document.getElementById("btnClearData");
-
-        // ---------------------------------------------------------------------
-        // BANCO DE EJERCICIOS – PROGRESIÓN 3
-        // ---------------------------------------------------------------------
-
-        const exercises = [
-            {
-                id: "P3-INT-01",
-                title: "Descuento y porcentaje de ahorro",
-                tag: "Porcentajes y descuentos",
-                description:
-                    "En una tienda de deportes, un conjunto de pants y sudadera tiene un precio marcado de $1,250. Por el Buen Fin, la tienda ofrece un descuento del 35% sobre el precio marcado. Después del descuento, se debe pagar todavía un 16% de IVA sobre el precio con descuento.",
-                context:
-                    "a) Calculen cuál es el monto del descuento en pesos. b) Determinen el precio final que pagará el cliente después de aplicar el descuento y el IVA. c) Expliquen qué porcentaje del precio original terminó pagando el cliente."
-            },
-            {
-                id: "P3-INT-02",
-                title: "Mezcla de concentraciones",
-                tag: "Razones y proporciones",
-                description:
-                    "Para preparar 10 litros de una solución desinfectante, se recomienda mezclar una parte de concentrado por cada 9 partes de agua. Un conserje necesita preparar 25 litros de solución utilizando la misma proporción.",
-                context:
-                    "a) ¿Cuántos litros de concentrado y cuántos de agua debe usar para obtener 25 litros de solución? b) Expresen la relación 'concentrado : agua' como una razón simplificada. c) Expliquen cómo comprobar que su mezcla mantiene la misma concentración que la recomendada."
-            },
-            {
-                id: "P3-INT-03",
-                title: "Aumento de sueldo escalonado",
-                tag: "Porcentajes sucesivos",
-                description:
-                    "Una persona gana actualmente $8,500 mensuales. En enero recibe un aumento del 12% y, seis meses después, la empresa decide otorgar un aumento adicional del 5% sobre el nuevo sueldo.",
-                context:
-                    "a) Calculen el sueldo después del primer aumento. b) Determinen el sueldo final después del segundo aumento. c) Expliquen por qué no es correcto sumar simplemente 12% + 5% para obtener el aumento total."
-            },
-            {
-                id: "P3-INT-04",
-                title: "Comparación de ofertas de internet",
-                tag: "Razones y porcentajes",
-                description:
-                    "Dos compañías de internet ofrecen los siguientes paquetes: • Compañía A: 80 Mbps por $520 al mes. • Compañía B: 120 Mbps por $750 al mes.",
-                context:
-                    "a) Calculen el costo por Mbps en cada compañía. b) Determinen cuál oferta conviene más en términos de costo por Mbps. c) Expliquen su decisión considerando también otros factores posibles (no numéricos)."
-            },
-            {
-                id: "P3-INT-05",
-                title: "Plan de ahorro para un viaje",
-                tag: "Porcentajes y promedios",
-                description:
-                    "Un equipo de estudiantes quiere ahorrar para un viaje que costará aproximadamente $18,000 en total. Planean ahorrar durante 9 meses. En los primeros 4 meses logran reunir en promedio $1,200 por mes.",
-                context:
-                    "a) Calculen cuánto dinero han reunido en esos 4 meses. b) Determinen cuánto les falta por ahorrar. c) Calculen cuánto deberían ahorrar en promedio cada mes, durante los 5 meses restantes, para alcanzar la meta."
-            },
-            {
-                id: "P3-INT-06",
-                title: "Rebaja y devolución",
-                tag: "Porcentajes y proporcionalidad",
-                description:
-                    "En una tienda de electrónica, una computadora tiene un precio de lista de $15,800. Primero se aplica una rebaja del 20%. Después de la compra, el cliente participa en una dinámica y gana una tarjeta de regalo equivalente al 8% del precio que pagó.",
-                context:
-                    "a) Determinen cuánto paga finalmente por la computadora. b) Calculen el valor de la tarjeta de regalo. c) Expliquen qué porcentaje del precio original representa la tarjeta de regalo."
-            },
-            {
-                id: "P3-INT-07",
-                title: "Producción de botellas",
-                tag: "Razones y proporciones",
-                description:
-                    "Una máquina embotelladora llena 2,400 botellas en 40 minutos trabajando a ritmo constante. La fábrica planea instalar una segunda máquina idéntica para aumentar la producción.",
-                context:
-                    "a) ¿Cuántas botellas llenará una sola máquina en 1 hora? b) Si trabajan las dos máquinas al mismo tiempo durante 1 hora con el mismo ritmo, ¿cuántas botellas llenarán en total? c) Expresen la relación entre 'número de máquinas' y 'producción total' como una razón o proporción."
-            },
-            {
-                id: "P3-INT-08",
-                title: "Encuesta escolar",
-                tag: "Porcentajes y frecuencias",
-                description:
-                    "En una encuesta aplicada a 250 estudiantes sobre su medio de transporte para llegar a la escuela, se obtuvo: 32% utiliza camión urbano, 18% taxi, 25% automóvil particular y el resto camina.",
-                context:
-                    "a) Calculen cuántos estudiantes corresponden a cada medio de transporte. b) Determinen qué porcentaje representa el grupo que camina. c) Expliquen cómo podrían representar esta información en una gráfica de sectores."
-            },
-            {
-                id: "P3-INT-09",
-                title: "Conversión de divisas",
-                tag: "Razones y proporcionalidad",
-                description:
-                    "En una casa de cambio se establece que 1 dólar equivale a 18.90 pesos. Una persona desea cambiar $3,500 pesos a dólares para una compra en línea.",
-                context:
-                    "a) ¿Cuántos dólares obtendrá con $3,500 pesos? b) Si después encuentra una promoción donde el dólar está a 18.30 pesos, ¿cuántos dólares habría obtenido con el mismo dinero? c) Expliquen la diferencia en términos de porcentaje de ahorro o pérdida."
-            },
-            {
-                id: "P3-INT-10",
-                title: "Preparación de notas de examen",
-                tag: "Porcentajes y organización del tiempo",
-                description:
-                    "Una estudiante organiza su tiempo de estudio para un examen de Pensamiento Matemático I. Decide dedicar el 40% del tiempo a razones y proporciones, el 35% a porcentajes y el resto a problemas integradores.",
-                context:
-                    "a) Si planea estudiar 15 horas en total, ¿cuántas horas dedicará a cada tema? b) Determinen qué porcentaje del tiempo representa la parte de problemas integradores. c) Expliquen por qué es importante distribuir el tiempo de manera proporcional según la dificultad de los temas."
-            }
+    function createExercisePlan() {
+        const plan = [
+            "razones", "razones",
+            "regla3d",
+            "regla3i",
+            "exponentes", "exponentes", "exponentes",
+            "combinadas", "combinadas", "combinadas"
         ];
 
-        // ---------------------------------------------------------------------
-        // MANEJO DE ESTADO Y LOCALSTORAGE
-        // ---------------------------------------------------------------------
+        for (let i = plan.length - 1; i > 0; i--) {
+            const j = randomInt(0, i);
+            const temp = plan[i];
+            plan[i] = plan[j];
+            plan[j] = temp;
+        }
+        return plan;
+    }
 
-        const defaultState = {
-            exerciseId: null,
-            answer: "",
-            attempts: 0,
-            finalAnswer: "",
-            lastUpdated: null
+    function showGeneralMessage(text, type = "info") {
+        generalMessage.textContent = text || "";
+        generalMessage.className = "message " + type;
+    }
+
+    function updateCounters() {
+        exerciseCounterEl.textContent = "Ejercicio " + currentExerciseNumber + " de " + MAX_EXERCISES;
+        aciertosBadge.textContent = "Aciertos: " + correctCount;
+        erroresBadge.textContent = "Errores: " + incorrectCount;
+        attemptBadge.textContent = "Intento: " + attemptNumber;
+        sessionBadge.textContent = "Sesión: " + (sessionCode || "-----");
+    }
+
+    function clearFeedback() {
+        feedbackEl.textContent = "";
+        feedbackEl.classList.add("hidden");
+        feedbackEl.classList.remove("correct", "incorrect");
+    }
+
+    function normalizeRatioString(str) {
+        if (!str) return "";
+        let s = str.toString().trim().toLowerCase();
+        s = s.replace(/\s+/g, "");
+        s = s.replace("/", ":");
+        return s;
+    }
+
+    function validateTeamData() {
+        if (!accessGranted) {
+            showGeneralMessage("Primero escribe el código de acceso correcto de tu grupo y presiona “Entrar”.", "error");
+            return false;
+        }
+
+        const i1 = integrante1Input.value.trim();
+        const i2 = integrante2Input.value.trim();
+        const i3 = integrante3Input.value.trim();
+        const g = grupoInput.value.trim();
+
+        if (!i1 || !i2 || !i3 || !g) {
+            showGeneralMessage("Por favor, escribe los nombres de los 3 integrantes. El grupo ya aparece fijo.", "error");
+            return false;
+        }
+        showGeneralMessage("");
+        return true;
+    }
+
+    // -----------------------------
+    // Generación de ejercicios
+    // -----------------------------
+
+    function generateRazonesExercise() {
+        const subtype = randomChoice(["porcentaje", "razon"]);
+        let statement = "";
+        let correctAnswer;
+        let explanation = "";
+        let comparison = "numeric";
+
+        if (subtype === "porcentaje") {
+            const percents = [10, 15, 20, 25, 30];
+            const p = randomChoice(percents);
+            const base = randomInt(4, 10) * 10;
+            const discount = base * p / 100;
+
+            statement =
+                "En una tienda, un artículo cuesta " + base + " pesos. " +
+                "Se aplica un descuento del " + p + "% sobre el precio.\n\n" +
+                "¿Cuánto se descuenta en pesos? Escribe solo la cantidad descontada (sin escribir la palabra \"pesos\").";
+
+            correctAnswer = discount;
+            explanation =
+                "Para calcular el descuento, se aplica el porcentaje al precio:\n" +
+                p + "% de " + base + " = (" + p + "/100) × " + base + " = " + discount + ".\n" +
+                "Por lo tanto, el descuento es de " + discount + " pesos.";
+        } else {
+            const a = randomInt(2, 12);
+            const b = randomInt(2, 12);
+
+            function gcd(x, y) {
+                while (y !== 0) {
+                    const temp = y;
+                    y = x % y;
+                    x = temp;
+                }
+                return Math.abs(x);
+            }
+
+            const g = gcd(a, b);
+            const sa = a / g;
+            const sb = b / g;
+            const ratioSimple = sa + ":" + sb;
+
+            statement =
+                "En una receta se usan " + a + " tazas de harina y " + b + " tazas de azúcar.\n\n" +
+                "Escribe la razón harina:azúcar simplificada en formato a:b (por ejemplo 2:3).";
+
+            correctAnswer = ratioSimple;
+            comparison = "ratio";
+            explanation =
+                "La razón inicial es harina:azúcar = " + a + ":" + b + ".\n" +
+                "Se simplifica dividiendo ambos términos entre el máximo común divisor (" + g + "):\n" +
+                a + " ÷ " + g + " = " + sa + ",   " + b + " ÷ " + g + " = " + sb + ".\n" +
+                "Por lo tanto, la razón simplificada es " + ratioSimple + ".";
+        }
+
+        return {
+            displayType: "Razones, proporciones y porcentajes",
+            statement,
+            correctAnswer,
+            explanation,
+            comparison
         };
+    }
 
-        function loadState() {
-            try {
-                const raw = localStorage.getItem(STORAGE_KEY);
-                if (!raw) return { ...defaultState };
-                const parsed = JSON.parse(raw);
-                return { ...defaultState, ...parsed };
-            } catch (err) {
-                console.error("Error al leer estado:", err);
-                return { ...defaultState };
+    function generateRegla3DirectaExercise() {
+        const q1 = randomInt(2, 8);
+        const unitPrice = randomInt(10, 40);
+        const cost1 = q1 * unitPrice;
+        const q2 = randomInt(3, 12);
+        const result = unitPrice * q2;
+
+        const context = randomChoice(["tela", "cuadernos", "kilogramos de fruta"]);
+        let unidad = "metros";
+        let articulo = "tela";
+        if (context === "cuadernos") {
+            unidad = "cuadernos";
+            articulo = "cuadernos";
+        } else if (context === "kilogramos de fruta") {
+            unidad = "kg";
+            articulo = "fruta";
+        }
+
+        const statement =
+            "En una tienda, " + q1 + " " + unidad + " de " + articulo + " cuestan " + cost1 + " pesos.\n\n" +
+            "¿Cuánto costarán " + q2 + " " + unidad + " del mismo producto?\n" +
+            "Escribe solo el costo en pesos (puede ser número entero).";
+
+        const explanation =
+            "Esta situación corresponde a una <regla de 3 directa>, porque al aumentar la cantidad también aumenta el costo.\n\n" +
+            "Primero calculamos el precio por unidad:\n" +
+            "Precio por unidad = " + cost1 + " ÷ " + q1 + " = " + unitPrice + " pesos.\n" +
+            "Luego multiplicamos por la nueva cantidad:\n" +
+            q2 + " × " + unitPrice + " = " + result + " pesos.\n" +
+            "Por lo tanto, " + q2 + " " + unidad + " costarán " + result + " pesos.";
+
+        return {
+            displayType: "Situación de proporcionalidad (elige la estrategia adecuada)",
+            statement,
+            correctAnswer: result,
+            explanation,
+            comparison: "numeric"
+        };
+    }
+
+    function generateRegla3InversaExercise() {
+        const personas1 = randomInt(2, 6);
+        const dias1 = randomInt(4, 10);
+        const producto = personas1 * dias1;
+
+        const posibles = [];
+        for (let d = 2; d <= 12; d++) {
+            if (producto % d === 0 && d !== personas1) {
+                posibles.push(d);
             }
         }
+        const personas2 = posibles.length > 0 ? randomChoice(posibles) : personas1 * 2;
+        const dias2 = producto / personas2;
 
-        function saveState(state) {
-            try {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-            } catch (err) {
-                console.error("Error al guardar estado:", err);
-            }
-        }
+        const statement =
+            "Un equipo de " + personas1 + " personas tarda " + dias1 + " días en realizar cierto trabajo.\n\n" +
+            "Si ahora participan " + personas2 + " personas y trabajan al mismo ritmo, ¿en cuántos días terminarán el trabajo?\n" +
+            "Escribe solo el número de días (puede ser entero).";
 
-        function clearState() {
-            try {
-                localStorage.removeItem(STORAGE_KEY);
-            } catch (err) {
-                console.error("Error al limpiar estado:", err);
-            }
-        }
+        const explanation =
+            "Esta situación corresponde a una <regla de 3 inversa>, porque al aumentar el número de personas, el tiempo disminuye.\n\n" +
+            "El producto personas × días se mantiene constante:\n" +
+            personas1 + " × " + dias1 + " = " + producto + ".\n" +
+            "Para " + personas2 + " personas:\n" +
+            personas2 + " × días₂ = " + producto + " → días₂ = " + producto + " ÷ " + personas2 + " = " + dias2 + ".\n" +
+            "Por lo tanto, el trabajo se terminará en " + dias2 + " días.";
 
-        let appState = loadState();
+        return {
+            displayType: "Situación de proporcionalidad (elige la estrategia adecuada)",
+            statement,
+            correctAnswer: dias2,
+            explanation,
+            comparison: "numeric"
+        };
+    }
 
-        // ---------------------------------------------------------------------
-        // FUNCIONES AUXILIARES
-        // ---------------------------------------------------------------------
+    function generateExponentesExercise() {
+        const bases = [2, 3, 4, 5, 10];
+        const base = randomChoice(bases);
+        const lawType = randomChoice(["mult", "div", "potencia", "cero_uno"]);
 
-        function getRandomExerciseId() {
-            if (!exercises.length) return null;
-            const randomIndex = Math.floor(Math.random() * exercises.length);
-            return exercises[randomIndex].id;
-        }
+        let statement = "";
+        let correctAnswer;
+        let explanation = "";
 
-        function getExerciseById(id) {
-            return exercises.find(e => e.id === id) || null;
-        }
-
-        function formatDate(date) {
-            const d = date.getDate().toString().padStart(2, "0");
-            const m = (date.getMonth() + 1).toString().padStart(2, "0");
-            const y = date.getFullYear();
-            return `${d}/${m}/${y}`;
-        }
-
-        function formatTime(date) {
-            const h = date.getHours().toString().padStart(2, "0");
-            const m = date.getMinutes().toString().padStart(2, "0");
-            return `${h}:${m} h`;
-        }
-
-        function buildMembersList() {
-            const names = [
-                integrante1Input.value.trim(),
-                integrante2Input.value.trim(),
-                integrante3Input.value.trim(),
-                integrante4Input.value.trim()
-            ].filter(Boolean);
-
-            if (!names.length) return "Sin registros";
-            if (names.length === 1) return names[0];
-
-            const last = names.pop();
-            return `${names.join(", ")} y ${last}`;
-        }
-
-        function updateExerciseUI() {
-            let exerciseId = appState.exerciseId;
-            if (!exerciseId) {
-                exerciseId = getRandomExerciseId();
-                appState.exerciseId = exerciseId;
-                saveState(appState);
-            }
-
-            const exercise = getExerciseById(exerciseId);
-            if (!exercise) {
-                exerciseTitleEl.textContent = "No se encontró un ejercicio";
-                exerciseDescriptionEl.textContent = "Ocurrió un problema al cargar la actividad. Avise a su docente.";
-                exerciseContextEl.textContent = "";
-                return;
-            }
-
-            exerciseTitleEl.textContent = exercise.title;
-            exerciseTagEl.textContent = exercise.tag;
-            exerciseDescriptionEl.textContent = exercise.description;
-            exerciseContextEl.textContent = exercise.context;
-
-            if (appState.finalAnswer) {
-                respuestaInput.value = appState.finalAnswer;
-                feedbackEl.textContent = "Respuesta final registrada. Si necesitan corregirla, consulten a su docente.";
-                feedbackEl.className = "feedback correct";
+        if (lawType === "mult") {
+            const e1 = randomInt(1, 4);
+            const e2 = randomInt(1, 4);
+            const expResult = e1 + e2;
+            correctAnswer = Math.pow(base, expResult);
+            statement =
+                "Aplica la ley de multiplicación de potencias de la misma base:\n\n" +
+                base + "^" + e1 + " × " + base + "^" + e2 + " = ?\n\n" +
+                "Importante: escribe solo el resultado final como número (por ejemplo 32), no escribas una potencia con ^ o **.";
+            explanation =
+                "Cuando multiplicamos potencias de la misma base, se suman los exponentes:\n" +
+                base + "^" + e1 + " × " + base + "^" + e2 + " = " + base + "^(" + e1 + " + " + e2 + ") = " +
+                base + "^" + expResult + " = " + correctAnswer + ".";
+        } else if (lawType === "div") {
+            const e1 = randomInt(2, 4);
+            const e2 = randomInt(1, e1);
+            const expResult = e1 - e2;
+            correctAnswer = Math.pow(base, expResult);
+            statement =
+                "Aplica la ley de división de potencias de la misma base:\n\n" +
+                base + "^" + e1 + " ÷ " + base + "^" + e2 + " = ?\n\n" +
+                "Importante: escribe solo el resultado final como número (por ejemplo 25), no escribas una potencia con ^ o **.";
+            explanation =
+                "Cuando dividimos potencias de la misma base, se restan los exponentes:\n" +
+                base + "^" + e1 + " ÷ " + base + "^" + e2 + " = " + base + "^(" + e1 + " - " + e2 + ") = " +
+                base + "^" + expResult + " = " + correctAnswer + ".";
+        } else if (lawType === "potencia") {
+            const e1 = randomInt(1, 3);
+            const e2 = randomInt(1, 3);
+            const expResult = e1 * e2;
+            correctAnswer = Math.pow(base, expResult);
+            statement =
+                "Aplica la ley de potencia de una potencia:\n\n" +
+                "(" + base + "^" + e1 + ")^" + e2 + " = ?\n\n" +
+                "Importante: escribe solo el resultado final como número (por ejemplo 64), no escribas una potencia con ^ o **.";
+            explanation =
+                "En la potencia de una potencia, se multiplican los exponentes:\n" +
+                "(" + base + "^" + e1 + ")^" + e2 + " = " + base + "^(" + e1 + " × " + e2 + ") = " +
+                base + "^" + expResult + " = " + correctAnswer + ".";
+        } else {
+            const option = randomChoice(["cero", "uno"]);
+            if (option === "cero") {
+                correctAnswer = 1;
+                statement =
+                    "Aplica la ley del exponente cero:\n\n" +
+                    base + "^0 = ?\n\n" +
+                    "Importante: escribe solo el resultado final como número (en este caso 1), no escribas una potencia con ^ o **.";
+                explanation =
+                    "Toda base distinta de cero elevada a la potencia 0 es igual a 1:\n" +
+                    base + "^0 = 1.";
             } else {
-                respuestaInput.value = appState.answer || "";
-                feedbackEl.textContent = "";
-                feedbackEl.className = "feedback";
+                correctAnswer = base;
+                statement =
+                    "Aplica la ley del exponente 1:\n\n" +
+                    base + "^1 = ?\n\n" +
+                    "Importante: escribe solo el resultado final como número (en este caso " + base + "), no escribas una potencia con ^ o **.";
+                explanation =
+                    "Cualquier número elevado a la potencia 1 es el mismo número:\n" +
+                    base + "^1 = " + base + ".";
             }
-
-            updateSummaryUI();
         }
 
-        function updateSummaryUI() {
-            const attempts = appState.attempts || 0;
-            const hasFinalAnswer = Boolean(appState.finalAnswer);
+        return {
+            displayType: "Leyes de exponentes (casos amigables)",
+            statement,
+            correctAnswer,
+            explanation,
+            comparison: "numeric"
+        };
+    }
 
-            attemptsCountEl.textContent = attempts.toString();
-            scoreResultEl.textContent = hasFinalAnswer ? appState.finalAnswer || "–" : "–";
+    const combinadasBank = [
+        {
+            expr: "12 - 4(3 + 2^2) + [6 - 2(5 - 3)]",
+            result: -14,
+            explanation:
+                "Primero resolvemos potencias y paréntesis internos:\n" +
+                "2^2 = 4, entonces (3 + 4) = 7.\n" +
+                "(5 - 3) = 2, luego 2(5 - 3) = 2 × 2 = 4 y [6 - 4] = 2.\n\n" +
+                "Sustituimos en la expresión:\n" +
+                "12 - 4(7) + 2 = 12 - 28 + 2.\n" +
+                "Ahora hacemos las operaciones de izquierda a derecha:\n" +
+                "12 - 28 = -16,  -16 + 2 = -14.\n" +
+                "Resultado final: -14."
+        },
+        {
+            expr: "18 ÷ 3 + 2^3 - {4[2 + (3 - 1)]}",
+            result: -2,
+            explanation:
+                "Primero potencias y paréntesis:\n" +
+                "2^3 = 8, (3 - 1) = 2, entonces [2 + 2] = 4.\n" +
+                "Luego 4[4] = 4 × 4 = 16.\n\n" +
+                "Sustituimos:\n" +
+                "18 ÷ 3 + 8 - 16.\n" +
+                "Hacemos la división: 18 ÷ 3 = 6.\n" +
+                "Ahora sumas y restas: 6 + 8 = 14, 14 - 16 = -2.\n" +
+                "Resultado final: -2."
+        },
+        {
+            expr: "40 - [6 + 2(4 - 1)^2] + 3^2",
+            result: 25,
+            explanation:
+                "Primero potencias y paréntesis:\n" +
+                "(4 - 1) = 3, entonces (4 - 1)^2 = 3^2 = 9.\n" +
+                "Luego 2(9) = 18 y [6 + 18] = 24.\n" +
+                "También 3^2 = 9.\n\n" +
+                "Sustituimos:\n" +
+                "40 - 24 + 9.\n" +
+                "Operamos de izquierda a derecha: 40 - 24 = 16, 16 + 9 = 25.\n" +
+                "Resultado final: 25."
+        },
+        {
+            expr: "25 - {3[4 + 2(3^2 - 1)]}",
+            result: -35,
+            explanation:
+                "Primero potencias y paréntesis internos:\n" +
+                "3^2 = 9, entonces (3^2 - 1) = 9 - 1 = 8.\n" +
+                "Luego 2(8) = 16 y [4 + 16] = 20.\n" +
+                "Después 3[20] = 3 × 20 = 60.\n\n" +
+                "Sustituimos:\n" +
+                "25 - 60 = -35.\n" +
+                "Resultado final: -35."
+        },
+        {
+            expr: "30 + 2[5^2 - 3(4 - 1)] - 8",
+            result: 54,
+            explanation:
+                "Primero potencias y paréntesis:\n" +
+                "5^2 = 25, (4 - 1) = 3, entonces 3(3) = 9.\n" +
+                "Dentro del corchete: 25 - 9 = 16, luego 2[16] = 2 × 16 = 32.\n\n" +
+                "Sustituimos:\n" +
+                "30 + 32 - 8.\n" +
+                "De izquierda a derecha: 30 + 32 = 62, 62 - 8 = 54.\n" +
+                "Resultado final: 54."
+        },
+        {
+            expr: "50 - [2^3 + 4(6 - 2)] + {3(5 - 1)}",
+            result: 38,
+            explanation:
+                "Primero potencias y paréntesis:\n" +
+                "2^3 = 8, (6 - 2) = 4, entonces 4(4) = 16.\n" +
+                "Dentro del corchete: 8 + 16 = 24.\n" +
+                "(5 - 1) = 4, entonces 3(4) = 12.\n\n" +
+                "Sustituimos:\n" +
+                "50 - 24 + 12.\n" +
+                "De izquierda a derecha: 50 - 24 = 26, 26 + 12 = 38.\n" +
+                "Resultado final: 38."
+        },
+        {
+            expr: "60 ÷ 3 + 2[4^2 - (6 + 2)] - 5",
+            result: 31,
+            explanation:
+                "Primero potencias y paréntesis:\n" +
+                "4^2 = 16, (6 + 2) = 8, luego 16 - 8 = 8.\n" +
+                "Entonces 2[8] = 2 × 8 = 16.\n" +
+                "También 60 ÷ 3 = 20.\n\n" +
+                "Sustituimos:\n" +
+                "20 + 16 - 5.\n" +
+                "De izquierda a derecha: 20 + 16 = 36, 36 - 5 = 31.\n" +
+                "Resultado final: 31."
+        },
+        {
+            expr: "35 + {4[3^2 - (2 + 1)]} - 2^3",
+            result: 51,
+            explanation:
+                "Primero potencias y paréntesis:\n" +
+                "3^2 = 9, (2 + 1) = 3, entonces 9 - 3 = 6.\n" +
+                "Luego 4[6] = 4 × 6 = 24.\n" +
+                "También 2^3 = 8.\n\n" +
+                "Sustituimos:\n" +
+                "35 + 24 - 8.\n" +
+                "De izquierda a derecha: 35 + 24 = 59, 59 - 8 = 51.\n" +
+                "Resultado final: 51."
+        }
+    ];
 
-            let progress = 0;
-            if (attempts > 0) progress = 50;
-            if (hasFinalAnswer) progress = 100;
-            progressPercentEl.textContent = `${progress}%`;
+    function generateCombinadasExercise() {
+        const item = randomChoice(combinadasBank);
+        const statement =
+            "Resuelve la siguiente operación combinada respetando la jerarquía de operaciones:\n\n" +
+            item.expr + " = ?\n\n" +
+            "Escribe el resultado final como número entero (puede ser negativo).";
 
-            if (!attempts) {
-                summaryTextEl.textContent =
-                    "Cuando registren su respuesta, aquí aparecerá un resumen con los intentos y el resultado final.";
-                attemptWarningEl.textContent = "";
-                return;
-            }
+        return {
+            displayType: "Operaciones combinadas (nivel súper avanzado)",
+            statement,
+            correctAnswer: item.result,
+            explanation: item.explanation,
+            comparison: "numeric"
+        };
+    }
 
-            if (attempts === 1 && hasFinalAnswer) {
-                summaryTextEl.textContent =
-                    "Excelente, registraron su respuesta en el primer intento. Revisen el reporte y tomen captura de pantalla.";
-                attemptWarningEl.textContent = "";
-            } else if (attempts === 1 && !hasFinalAnswer) {
-                summaryTextEl.textContent =
-                    "Llevan un intento registrado. Si todavía están revisando procedimientos, pueden ajustar su respuesta antes de guardarla como final.";
-                attemptWarningEl.textContent = "";
-            } else if (attempts === 2 && !hasFinalAnswer) {
-                summaryTextEl.textContent =
-                    "Tienen dos intentos registrados. Es importante que en el siguiente intento definan ya su respuesta final.";
-                attemptWarningEl.textContent =
-                    "Atención: el siguiente intento podría considerarse su respuesta final para la evidencia.";
-            } else if (attempts >= 2 && hasFinalAnswer) {
-                summaryTextEl.textContent =
-                    "Registraron su respuesta final después de varios intentos. Revisen que los datos estén correctos en el reporte.";
-                attemptWarningEl.textContent =
-                    "Nota: su docente podrá observar el número de intentos realizados.";
-            } else if (attempts >= MAX_ATTEMPTS) {
-                summaryTextEl.textContent =
-                    "Se llegó al número máximo de intentos sugeridos. Si aún tienen dudas, consulten a su docente.";
-                attemptWarningEl.textContent =
-                    "Recomendación: ya no modifiquen más la respuesta sin antes revisar con el docente.";
+    function generateExerciseByCode(code) {
+        if (code === "razones") return generateRazonesExercise();
+        if (code === "regla3d") return generateRegla3DirectaExercise();
+        if (code === "regla3i") return generateRegla3InversaExercise();
+        if (code === "exponentes") return generateExponentesExercise();
+        if (code === "combinadas") return generateCombinadasExercise();
+        return generateRazonesExercise();
+    }
+
+    // -----------------------------
+    // Flujo principal y control de botones
+    // -----------------------------
+
+    function setInitialButtonsState() {
+        btnIniciar.disabled = false;
+        btnVerificar.disabled = true;
+        btnSiguiente.disabled = true;
+        btnReporte.disabled = false; // puede ver reporte de intento anterior si quedó
+        btnReiniciar.disabled = true; // bloqueado hasta terminar 10 ejercicios en un intento
+    }
+
+    function lockDuringExerciseNotChecked() {
+        // Solo se puede usar "Verificar respuesta"
+        btnIniciar.disabled = true;
+        btnReiniciar.disabled = true;
+        btnReporte.disabled = true;
+        btnVerificar.disabled = false;
+        btnSiguiente.disabled = true;
+    }
+
+    function lockAfterCheckButNotFinished() {
+        // Solo se puede usar "Siguiente ejercicio"
+        btnIniciar.disabled = true;
+        btnReiniciar.disabled = true;
+        btnReporte.disabled = true;
+        btnVerificar.disabled = true;
+        btnSiguiente.disabled = false;
+    }
+
+    function unlockAfterFinishedAll() {
+        // Ya terminó los 10: puede ver reporte y volver a empezar
+        btnIniciar.disabled = true;
+        btnVerificar.disabled = true;
+        btnSiguiente.disabled = true;
+        btnReporte.disabled = false;
+        btnReiniciar.disabled = false;
+    }
+
+    function newExercise() {
+        if (currentExerciseNumber >= MAX_EXERCISES) {
+            showGeneralMessage("Ya completaste los 10 ejercicios de este intento. Usa “Ver reporte” o “Volver a empezar”.", "info");
+            return;
+        }
+
+        clearFeedback();
+        alreadyChecked = false;
+        answerInput.value = "";
+
+        const index = currentExerciseNumber;
+        const code = exercisePlan[index];
+        currentExercise = generateExerciseByCode(code);
+
+        currentExerciseNumber += 1;
+
+        exerciseTypeEl.textContent = "Tipo de problema: " + currentExercise.displayType;
+        exerciseStatementEl.textContent = currentExercise.statement;
+
+        updateCounters();
+        lockDuringExerciseNotChecked();
+        answerInput.focus();
+    }
+
+    function verifyAnswer() {
+        if (!currentExercise) {
+            showGeneralMessage("Primero genera un ejercicio con “Iniciar práctica”.", "error");
+            return;
+        }
+
+        const raw = answerInput.value.trim();
+        if (!raw) {
+            showGeneralMessage("Escribe una respuesta antes de verificar.", "error");
+            return;
+        }
+
+        if (alreadyChecked) {
+            showGeneralMessage("Esta respuesta ya fue verificada. Usa “Siguiente ejercicio” para continuar.", "info");
+            return;
+        }
+
+        let isCorrect = false;
+        const expected = currentExercise.correctAnswer;
+
+        if (currentExercise.comparison === "numeric") {
+            const userVal = parseFloat(raw.replace(",", "."));
+            if (!isNaN(userVal)) {
+                const expectedNum = parseFloat(expected);
+                const diff = Math.abs(userVal - expectedNum);
+                isCorrect = diff < 0.01;
             } else {
-                summaryTextEl.textContent =
-                    "Llevan varios intentos registrados. Procuren llegar a una respuesta final clara y justificada.";
-                attemptWarningEl.textContent = "";
+                isCorrect = false;
             }
+        } else if (currentExercise.comparison === "ratio") {
+            const userNormalized = normalizeRatioString(raw);
+            const expectedNormalized = normalizeRatioString(expected);
+            isCorrect = (userNormalized === expectedNormalized);
+        } else {
+            isCorrect = (raw.toLowerCase() === String(expected).toLowerCase());
         }
 
-        // ---------------------------------------------------------------------
-        // MANEJO DE RESPUESTAS
-        // ---------------------------------------------------------------------
+        feedbackEl.classList.remove("hidden", "correct", "incorrect");
 
-        function handleNewExercise() {
-            if (appState.finalAnswer) {
-                alert("Ya hay una respuesta final registrada. Si necesitan cambiar de ejercicio, consulten a su docente.");
-                return;
-            }
-
-            const confirmed = confirm(
-                "¿Seguro que quieren cambiar de ejercicio?\n\n" +
-                "Se conservará el número de intentos, pero se asignará una situación diferente."
-            );
-            if (!confirmed) return;
-
-            appState.exerciseId = getRandomExerciseId();
-            appState.answer = "";
-            saveState(appState);
-            updateExerciseUI();
-            respuestaInput.focus();
+        if (isCorrect) {
+            feedbackEl.classList.add("correct");
+            feedbackEl.textContent =
+                "✅ Correcto. Muy bien, aplicaste correctamente el procedimiento.\n\n" +
+                currentExercise.explanation;
+            correctCount += 1;
+        } else {
+            feedbackEl.classList.add("incorrect");
+            feedbackEl.textContent =
+                "❌ Incorrecto. El resultado correcto es: " + currentExercise.correctAnswer + ".\n\n" +
+                currentExercise.explanation;
+            incorrectCount += 1;
         }
 
-        function handleSaveAnswer() {
-            const answer = (respuestaInput.value || "").trim();
+        alreadyChecked = true;
+        updateCounters();
 
-            if (!answer) {
-                alert("Escriban primero el resultado final de su equipo antes de guardar.");
-                respuestaInput.focus();
-                return;
-            }
+        if (currentExerciseNumber < MAX_EXERCISES) {
+            lockAfterCheckButNotFinished();
+            showGeneralMessage("Respuesta verificada. Usa “Siguiente ejercicio” para continuar.", "info");
+        } else {
+            finishedAll = true;
+            unlockAfterFinishedAll();
 
-            const equipo = equipoInput.value.trim();
-            const grupo = grupoInput ? grupoInput.value.trim() : GROUP_NAME;
-            const integrante1 = integrante1Input.value.trim();
-            const integrante2 = integrante2Input.value.trim();
+            const totalEjercicios = correctCount + incorrectCount;
+            const bonusEligible =
+                (attemptNumber === 1 &&
+                 incorrectCount === 0 &&
+                 totalEjercicios === MAX_EXERCISES);
 
-            if (!equipo || !integrante1 || !integrante2) {
-                alert("Por favor, registren al menos: nombre del equipo, grupo e integrantes 1 y 2.");
-                return;
-            }
-
-            const attempts = (appState.attempts || 0) + 1;
-            appState.attempts = attempts;
-            appState.answer = answer;
-            appState.finalAnswer = answer;
-            appState.lastUpdated = new Date().toISOString();
-            saveState(appState);
-
-            feedbackEl.textContent = "Respuesta final guardada correctamente. Ahora pueden generar el reporte.";
-            feedbackEl.className = "feedback correct";
-
-            updateSummaryUI();
-            updateReport();
-        }
-
-        function handleShowExample() {
-            alert(
-                "Ejemplo de cómo resolver un problema integral:\n\n" +
-                "1. Leer con atención el contexto y subrayar los datos numéricos.\n" +
-                "2. Identificar qué se está pidiendo (descuento, porcentaje, razón, etc.).\n" +
-                "3. Organizar la información en una tabla o esquema.\n" +
-                "4. Plantear operaciones paso a paso usando razones, proporciones o porcentajes.\n" +
-                "5. Verificar que las unidades y el resultado final tengan sentido en el contexto.\n\n" +
-                "En su cuaderno, expliquen con sus propias palabras cómo llegaron al resultado."
-            );
-        }
-
-        // ---------------------------------------------------------------------
-        // REPORTE
-        // ---------------------------------------------------------------------
-
-        function updateReport() {
-            const now = appState.lastUpdated ? new Date(appState.lastUpdated) : new Date();
-
-            reportDateEl.textContent = formatDate(now);
-            reportTimeEl.textContent = formatTime(now);
-
-            const equipo = equipoInput.value.trim() || "Sin nombre";
-            const grupo = (grupoInput ? grupoInput.value.trim() : GROUP_NAME) || GROUP_NAME;
-            const turno = turnoInput.value.trim() || "Sin registro";
-
-            resultTeamEl.textContent = equipo;
-            resultMembersEl.textContent = buildMembersList();
-            resultGroupEl.textContent = grupo;
-            resultShiftEl.textContent = turno;
-
-            const exercise = getExerciseById(appState.exerciseId);
-            resultExerciseEl.textContent = exercise
-                ? `${exercise.id} – ${exercise.title}`
-                : "Sin ejercicio asignado";
-
-            const attempts = appState.attempts || 0;
-            const finalAnswer = appState.finalAnswer || "Sin respuesta final";
-
-            resultAnswerEl.textContent = finalAnswer;
-            resultAttemptsEl.textContent = attempts.toString();
-
-            if (!attempts) {
-                resultSummaryMainEl.textContent = "Actividad en proceso";
-                resultSummaryDetailEl.textContent =
-                    "Todavía no hay intentos registrados. Cuando guarden su respuesta, aquí aparecerá el resumen.";
-            } else if (attempts === 1) {
-                resultSummaryMainEl.textContent = "Respuesta registrada en el primer intento";
-                resultSummaryDetailEl.textContent =
-                    "Buen trabajo. Revisen que sus procedimientos coincidan con el resultado final.";
-            } else if (attempts === 2) {
-                resultSummaryMainEl.textContent = "Respuesta final después de dos intentos";
-                resultSummaryDetailEl.textContent =
-                    "Recuerden comentar en clase qué ajustaron entre el primer y el segundo intento.";
-            } else if (attempts >= 3) {
-                resultSummaryMainEl.textContent = "Respuesta final después de varios intentos";
-                resultSummaryDetailEl.textContent =
-                    "Reflexionen qué dificultades encontraron y cómo las resolvieron en equipo.";
-            }
-        }
-
-        function handleGenerateReport() {
-            if (!appState.finalAnswer) {
-                const proceed = confirm(
-                    "Aún no han guardado una respuesta final.\n\n" +
-                    "El reporte se generará con la información disponible hasta ahora. " +
-                    "¿Desean continuar?"
+            if (bonusEligible) {
+                showGeneralMessage(
+                    "Has terminado los 10 ejercicios de este intento SIN errores. " +
+                    "Este primer intento puede optar a puntos extra. Muestra el reporte con este código de sesión.",
+                    "info"
                 );
-                if (!proceed) return;
+            } else {
+                showGeneralMessage(
+                    "Has terminado los 10 ejercicios de este intento. Puedes ver el reporte final. " +
+                    "Recuerda que solo el primer intento sin errores de la sesión puede optar a puntos extra.",
+                    "info"
+                );
             }
+        }
+    }
 
-            updateReport();
+    function generateReport() {
+        const i1 = integrante1Input.value.trim();
+        const i2 = integrante2Input.value.trim();
+        const i3 = integrante3Input.value.trim();
+        const g = grupoInput.value.trim();
 
-            alert(
-                "El reporte se actualizó.\n\n" +
-                "Ahora tomen una captura de pantalla donde se vea COMPLETO el recuadro del reporte:\n" +
-                "• Nombre del equipo, integrantes, grupo y turno\n" +
-                "• Ejercicio asignado y resultado final\n" +
-                "• Número de intentos, fecha y hora"
-            );
+        const totalEjercicios = correctCount + incorrectCount;
+
+        const now = new Date();
+        const dia = String(now.getDate()).padStart(2, "0");
+        const mes = String(now.getMonth() + 1).padStart(2, "0");
+        const anio = now.getFullYear();
+        const horas = String(now.getHours()).padStart(2, "0");
+        const minutos = String(now.getMinutes()).padStart(2, "0");
+
+        const fechaStr = dia + "/" + mes + "/" + anio;
+        const horaStr = horas + ":" + minutos;
+
+        let porcentaje = 0;
+        if (totalEjercicios > 0) {
+            porcentaje = (correctCount / totalEjercicios) * 100;
+        }
+        const porcentajeStr = porcentaje.toFixed(1);
+
+        const bonusEligible =
+            (attemptNumber === 1 &&
+             incorrectCount === 0 &&
+             totalEjercicios === MAX_EXERCISES);
+
+        const bonusText = bonusEligible ? "SÍ" : "NO";
+
+        reportContent.innerHTML = `
+            <div><strong>Código de sesión:</strong> ${sessionCode}</div>
+            <div><strong>Número de intento:</strong> ${attemptNumber}</div>
+            <div><strong>Código de acceso usado:</strong> ${accessCodeUsed || "(no registrado)"}</div>
+            <div><strong>Grupo:</strong> ${g || "(sin registrar)"}</div>
+            <div><strong>Integrante 1:</strong> ${i1 || "(sin registrar)"}</div>
+            <div><strong>Integrante 2:</strong> ${i2 || "(sin registrar)"}</div>
+            <div><strong>Integrante 3:</strong> ${i3 || "(sin registrar)"}</div>
+            <div><strong>Fecha de finalización:</strong> ${fechaStr}</div>
+            <div><strong>Hora de finalización:</strong> ${horaStr}</div>
+            <div><strong>Ejercicios resueltos:</strong> ${totalEjercicios}</div>
+            <div><strong>Aciertos:</strong> ${correctCount}</div>
+            <div><strong>Errores:</strong> ${incorrectCount}</div>
+            <div><strong>Porcentaje de aciertos:</strong> ${porcentajeStr}%</div>
+            <div><strong>¿Califica para puntos extra (primer intento sin errores)?</strong> ${bonusText}</div>
+        `;
+
+        reportSection.classList.remove("hidden");
+        reportSection.scrollIntoView({behavior: "smooth"});
+    }
+
+    function resetCounters() {
+        if (!finishedAll) {
+            showGeneralMessage("Solo puedes volver a empezar cuando hayas terminado los 10 ejercicios de este intento.", "error");
+            return;
         }
 
-        function handleClearData() {
-            const confirmed = confirm(
-                "Esta acción eliminará los datos guardados en esta computadora (respuesta y número de intentos).\n\n" +
-                "¿Seguro que desean limpiar la información?\n\n" +
-                "Nota: esto no borra la evidencia que ya haya registrado su docente."
-            );
-            if (!confirmed) return;
+        correctCount = 0;
+        incorrectCount = 0;
+        currentExerciseNumber = 0;
+        currentExercise = null;
+        alreadyChecked = false;
+        finishedAll = false;
+        exercisePlan = createExercisePlan();
+        attemptNumber += 1;
 
-            clearState();
-            appState = { ...defaultState };
-            respuestaInput.value = "";
-            feedbackEl.textContent = "";
-            feedbackEl.className = "feedback";
-            updateExerciseUI();
-            updateReport();
+        exerciseTypeEl.textContent = "Presiona “Iniciar práctica” para generar el primer ejercicio.";
+        exerciseStatementEl.textContent = "";
+        answerInput.value = "";
+        clearFeedback();
+        updateCounters();
+        setInitialButtonsState();
+        showGeneralMessage(
+            "Se ha iniciado un nuevo intento (" + attemptNumber + ") para esta misma sesión (" + sessionCode + "). " +
+            "Presiona “Iniciar práctica” para comenzar el siguiente paquete de 10 ejercicios.",
+            "info"
+        );
+    }
+
+    // -----------------------------
+    // Listeners
+    // -----------------------------
+
+    btnAcceso.addEventListener("click", function () {
+        const raw = accessCodeInput.value.trim();
+        if (!raw) {
+            accessMessage.textContent = "Escribe el código de acceso de tu grupo.";
+            accessMessage.classList.remove("hidden");
+            accessMessage.classList.remove("info");
+            accessMessage.classList.add("error");
+            return;
         }
 
-        // ---------------------------------------------------------------------
-        // INICIALIZACIÓN
-        // ---------------------------------------------------------------------
+        const normalized = raw.toUpperCase();
+        let foundGroup = null;
+        let usedKey = null;
 
-        function init() {
-            if (!appState.exerciseId) {
-                appState.exerciseId = getRandomExerciseId();
-                saveState(appState);
+        for (const key in GROUP_CODES) {
+            if (normalized === key.toUpperCase()) {
+                foundGroup = GROUP_CODES[key];
+                usedKey = key;
+                break;
             }
-
-            updateExerciseUI();
-            updateReport();
-
-            btnNewExercise.addEventListener("click", handleNewExercise);
-            btnSaveAnswer.addEventListener("click", handleSaveAnswer);
-            btnShowExample.addEventListener("click", handleShowExample);
-            btnGenerateReport.addEventListener("click", handleGenerateReport);
-            btnClearData.addEventListener("click", handleClearData);
-
-            respuestaInput.addEventListener("keydown", (event) => {
-                if (event.key === "Enter" && !event.shiftKey) {
-                    event.preventDefault();
-                    handleSaveAnswer();
-                }
-            });
         }
 
-        init();
+        if (!foundGroup) {
+            accessMessage.textContent = "Código incorrecto. Verifica con la maestra.";
+            accessMessage.classList.remove("hidden");
+            accessMessage.classList.remove("info");
+            accessMessage.classList.add("error");
+            return;
+        }
 
-        // ------------------------ CONTROL DE ACCESO POR CONTRASEÑA ------------------------
-        (function setupPasswordGate() {
-            const overlay = document.getElementById("password-overlay");
-            const passwordInput = document.getElementById("access-password");
-            const accessButton = document.getElementById("access-button");
-            const errorEl = document.getElementById("password-error");
+        accessGranted = true;
+        groupFixed = foundGroup;
+        accessCodeUsed = usedKey;
 
-            if (!overlay || !passwordInput || !accessButton) return;
+        accessMessage.textContent = "Acceso concedido para el grupo " + groupFixed + ".";
+        accessMessage.classList.remove("hidden");
+        accessMessage.classList.remove("error");
+        accessMessage.classList.add("info");
 
-            function tryAccess() {
-                const entered = passwordInput.value.trim();
-                if (entered === GROUP_PASSWORD) {
-                    overlay.style.display = "none";
-                    passwordInput.value = "";
-                    if (errorEl) errorEl.textContent = "";
-                    if (integrante1Input) {
-                        integrante1Input.focus();
-                    }
-                } else {
-                    if (errorEl) {
-                        errorEl.textContent = "Contraseña incorrecta. Vuelve a intentarlo.";
-                    }
-                    passwordInput.select();
-                }
+        grupoInput.value = groupFixed;
+        grupoInput.readOnly = true;
+        grupoInput.style.backgroundColor = "#f0f4ff";
+        grupoInput.style.fontWeight = "600";
+
+        accessCodeInput.readOnly = true;
+        btnAcceso.disabled = true;
+
+        showGeneralMessage(
+            "Acceso concedido. Verifica que los nombres del equipo estén correctos. " +
+            "Luego presiona “Iniciar práctica”. Código de sesión: " + sessionCode + ".",
+            "info"
+        );
+    });
+
+    btnIniciar.addEventListener("click", function () {
+        if (!validateTeamData()) return;
+
+        if (finishedAll) {
+            showGeneralMessage("Ya completaste un intento. Si deseas otro, usa “Volver a empezar (nuevo intento)”.", "info");
+            return;
+        }
+
+        if (currentExerciseNumber === 0 && !currentExercise) {
+            if (!exercisePlan || exercisePlan.length !== MAX_EXERCISES) {
+                exercisePlan = createExercisePlan();
             }
+            newExercise();
+        } else {
+            showGeneralMessage("La práctica ya está en curso. Resuelve el ejercicio actual y usa “Siguiente ejercicio”.", "info");
+        }
+    });
 
-            accessButton.addEventListener("click", tryAccess);
+    btnReiniciar.addEventListener("click", function () {
+        resetCounters();
+    });
 
-            passwordInput.addEventListener("keydown", (event) => {
-                if (event.key === "Enter") {
-                    event.preventDefault();
-                    tryAccess();
-                }
-            });
+    btnVerificar.addEventListener("click", function () {
+        verifyAnswer();
+    });
 
-            passwordInput.focus();
-        })();
-    })();
+    btnSiguiente.addEventListener("click", function () {
+        if (currentExerciseNumber < MAX_EXERCISES) {
+            newExercise();
+        } else {
+            showGeneralMessage("Ya no hay más ejercicios en este intento. Usa “Ver reporte” o “Volver a empezar”.", "info");
+        }
+    });
+
+    btnReporte.addEventListener("click", function () {
+        if (!finishedAll) {
+            showGeneralMessage("Debes terminar los 10 ejercicios antes de ver el reporte final.", "error");
+            return;
+        }
+        generateReport();
+    });
+
+    // Aviso si intentan cerrar o recargar (para que no pierdan la sesión por error)
+    window.addEventListener("beforeunload", function (e) {
+        // Solo advertimos si ya empezaron ejercicios y no han terminado
+        if (currentExerciseNumber > 0 && !finishedAll) {
+            e.preventDefault();
+            e.returnValue = "";
+        }
+    });
+
+    // -----------------------------
+    // Estado inicial al cargar
+    // -----------------------------
+    sessionCode = generateSessionCode();
+    exercisePlan = createExercisePlan();
+    finishedAll = false;
+    updateCounters();
+    setInitialButtonsState();
+    showGeneralMessage(
+        "Primero escribe el código de acceso del grupo y presiona “Entrar”. " +
+        "Después registra los nombres del equipo y presiona “Iniciar práctica” para comenzar el paquete de 10 ejercicios. " +
+        "El código de sesión aparecerá en el reporte para la maestra.",
+        "info"
+    );
 </script>
-
 </body>
 </html>

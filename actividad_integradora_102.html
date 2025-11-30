@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>PRÁCTICA INTEGRAL TERCER PARCIAL PM1</title>
+    <title>PRÁCTICA INTEGRAL TERCER PARCIAL PM1 – Grupo 102</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * {
@@ -64,7 +64,8 @@
             margin-bottom: 4px;
         }
 
-        input[type="text"] {
+        input[type="text"],
+        input[type="password"] {
             width: 100%;
             padding: 8px 10px;
             border-radius: 6px;
@@ -72,10 +73,15 @@
             font-size: 0.9rem;
         }
 
-        input[type="text"]:focus {
+        input[type="text"]:focus,
+        input[type="password"]:focus {
             outline: none;
             border-color: #4c6fff;
             box-shadow: 0 0 0 2px rgba(76, 111, 255, 0.2);
+        }
+
+        input[disabled] {
+            background: #f3f4f6;
         }
 
         .team-grid {
@@ -251,11 +257,24 @@
     <header>
         <h1>PRÁCTICA INTEGRAL TERCER PARCIAL PM1</h1>
         <p>Razones, porcentajes, regla de 3, exponentes y operaciones combinadas</p>
-        <p class="subtext">Pensamiento Matemático 1 – Mtra. Adriana Arroyo</p>
+        <p class="subtext">Grupo 102 – Pensamiento Matemático 1 – Mtra. Adriana Arroyo</p>
     </header>
 
     <!-- Mensajes generales -->
     <div id="generalMessage" class="message info"></div>
+
+    <!-- ACCESO CON CONTRASEÑA -->
+    <section class="card">
+        <h3>Acceso exclusivo del grupo 102</h3>
+        <label for="accessPassword">Contraseña del grupo</label>
+        <input type="password" id="accessPassword" autocomplete="off">
+        <div class="button-row">
+            <button id="btnAcceder">Entrar a la actividad</button>
+        </div>
+        <p class="small-note">
+            Esta práctica es solo para el <strong>grupo 102</strong>. No compartas la contraseña con otros grupos.
+        </p>
+    </section>
 
     <!-- Datos del equipo -->
     <section class="card">
@@ -273,14 +292,10 @@
                 <label for="integrante3">Nombre y apellido del integrante 3</label>
                 <input type="text" id="integrante3" autocomplete="off">
             </div>
-            <div>
-                <label for="grupo">Grupo</label>
-                <input type="text" id="grupo" autocomplete="off">
-            </div>
         </div>
         <p class="small-note">
-            Antes de iniciar la práctica asegúrate de escribir correctamente los nombres y el grupo. Estos datos
-            aparecerán en el reporte final.
+            Antes de iniciar la práctica asegúrate de escribir correctamente los nombres.
+            El <strong>grupo está fijo como 102</strong> y aparecerá automáticamente en el reporte final.
         </p>
     </section>
 
@@ -362,6 +377,13 @@
 
 <script>
     // -----------------------------
+    // Constantes de grupo y acceso
+    // -----------------------------
+    const GROUP_NAME = "102";
+    const GROUP_LABEL = "Grupo 102";
+    const ACCESS_PASSWORD = "L112-2-730";
+
+    // -----------------------------
     // Variables globales de estado
     // -----------------------------
     const MAX_EXERCISES = 10;
@@ -375,15 +397,19 @@
     let attemptNumber = 1;
     let finishedAll = false;      // true cuando ya se verificó el ejercicio 10
     let sessionCode = "";         // Código de sesión (cambia al recargar la página)
+    let accessGranted = false;    // Solo true cuando la contraseña es correcta
 
     // -----------------------------
     // Referencias a elementos DOM
     // -----------------------------
     const generalMessage = document.getElementById("generalMessage");
+
+    const accessPasswordInput = document.getElementById("accessPassword");
+    const btnAcceder = document.getElementById("btnAcceder");
+
     const integrante1Input = document.getElementById("integrante1");
     const integrante2Input = document.getElementById("integrante2");
     const integrante3Input = document.getElementById("integrante3");
-    const grupoInput = document.getElementById("grupo");
 
     const exerciseTypeEl = document.getElementById("exerciseType");
     const exerciseStatementEl = document.getElementById("exerciseStatement");
@@ -475,13 +501,34 @@
         const i1 = integrante1Input.value.trim();
         const i2 = integrante2Input.value.trim();
         const i3 = integrante3Input.value.trim();
-        const g = grupoInput.value.trim();
 
-        if (!i1 || !i2 || !i3 || !g) {
-            showGeneralMessage("Por favor, escribe los nombres de los 3 integrantes y el grupo antes de iniciar.", "error");
+        if (!i1 || !i2 || !i3) {
+            showGeneralMessage("Por favor, escribe los nombres de los 3 integrantes antes de iniciar.", "error");
             return false;
         }
         showGeneralMessage("");
+        return true;
+    }
+
+    // Habilitar / deshabilitar la interfaz (excepto la contraseña)
+    function setInterfaceEnabled(enabled) {
+        integrante1Input.disabled = !enabled;
+        integrante2Input.disabled = !enabled;
+        integrante3Input.disabled = !enabled;
+        answerInput.disabled = !enabled;
+
+        btnIniciar.disabled = !enabled;
+        btnReiniciar.disabled = !enabled;
+        btnVerificar.disabled = !enabled;
+        btnSiguiente.disabled = !enabled;
+        btnReporte.disabled = !enabled;
+    }
+
+    function requireAccess() {
+        if (!accessGranted) {
+            showGeneralMessage("Primero escribe la contraseña correcta del grupo 102.", "error");
+            return false;
+        }
         return true;
     }
 
@@ -902,6 +949,8 @@
     }
 
     function verifyAnswer() {
+        if (!requireAccess()) return;
+
         if (!currentExercise) {
             showGeneralMessage("Primero genera un ejercicio con “Iniciar práctica”.", "error");
             return;
@@ -971,10 +1020,11 @@
     }
 
     function generateReport() {
+        if (!requireAccess()) return;
+
         const i1 = integrante1Input.value.trim();
         const i2 = integrante2Input.value.trim();
         const i3 = integrante3Input.value.trim();
-        const g = grupoInput.value.trim();
 
         const totalEjercicios = correctCount + incorrectCount;
 
@@ -1000,7 +1050,7 @@
             <div><strong>Integrante 1:</strong> ${i1 || "(sin registrar)"}</div>
             <div><strong>Integrante 2:</strong> ${i2 || "(sin registrar)"}</div>
             <div><strong>Integrante 3:</strong> ${i3 || "(sin registrar)"}</div>
-            <div><strong>Grupo:</strong> ${g || "(sin registrar)"}</div>
+            <div><strong>Grupo:</strong> ${GROUP_LABEL}</div>
             <div><strong>Fecha de finalización:</strong> ${fechaStr}</div>
             <div><strong>Hora de finalización:</strong> ${horaStr}</div>
             <div><strong>Ejercicios resueltos:</strong> ${totalEjercicios}</div>
@@ -1014,6 +1064,8 @@
     }
 
     function resetCounters() {
+        if (!requireAccess()) return;
+
         if (!finishedAll) {
             showGeneralMessage("Solo puedes volver a empezar cuando hayas terminado los 10 ejercicios de este intento.", "error");
             return;
@@ -1045,7 +1097,26 @@
     // Listeners
     // -----------------------------
 
+    // Acceso con contraseña
+    btnAcceder.addEventListener("click", function () {
+        const pwd = accessPasswordInput.value.trim();
+        if (pwd === ACCESS_PASSWORD) {
+            accessGranted = true;
+            setInterfaceEnabled(true);
+            setInitialButtonsState();
+            accessPasswordInput.disabled = true;
+            btnAcceder.disabled = true;
+            showGeneralMessage(
+                "Acceso concedido para el " + GROUP_LABEL + ". Escriban los nombres del equipo y luego presionen “Iniciar práctica”.",
+                "info"
+            );
+        } else {
+            showGeneralMessage("Contraseña incorrecta. Verifica con tu maestra.", "error");
+        }
+    });
+
     btnIniciar.addEventListener("click", function () {
+        if (!requireAccess()) return;
         if (!validateTeamData()) return;
 
         if (finishedAll) {
@@ -1072,6 +1143,8 @@
     });
 
     btnSiguiente.addEventListener("click", function () {
+        if (!requireAccess()) return;
+
         if (currentExerciseNumber < MAX_EXERCISES) {
             newExercise();
         } else {
@@ -1095,8 +1168,10 @@
     finishedAll = false;
     updateCounters();
     setInitialButtonsState();
+    setInterfaceEnabled(false); // Hasta que escriban la contraseña correcta
+
     showGeneralMessage(
-        "Escribe los nombres del equipo y el grupo. Luego presiona “Iniciar práctica” para comenzar el paquete de 10 ejercicios. " +
+        "Escribe la contraseña del " + GROUP_LABEL + " para desbloquear la actividad. Después registra los nombres del equipo y presiona “Iniciar práctica”. " +
         "El código de sesión (" + sessionCode + ") debe coincidir con el que registre la maestra.",
         "info"
     );
